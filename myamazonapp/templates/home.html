@@ -4,6 +4,7 @@
 HOME 
 {% endblock %}
 {% block content %}
+
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -48,18 +49,22 @@ HOME
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-     <div class="row">
+     <div class="row text-bg-dark">
         {% for product in products %}
-        <div class="col-lg-4">
+        <div style="border-bottom: 1px solid rgba(249, 251, 209, 0.842);border-left: 1px solid wheat;" class="col-lg-4">
              
-            <img class="thumbnail" src= "{{product.image.url}}" alt="Image Error">
-            <div class="box-element product"></div>
-            <h6><strong>{{ product.name }}</strong></h6>
+            <img   src= "{{product.image.url}}" alt="Image Error">
+            <h6 class="card-title">{{ product.name }}</h6>
             <hr>
+            {% if user.is_authenticated %}
             <a href="addincart/{{ product.id }}" class="btn btn-outline-success">Add to cart</a>
+            {% else %}
+             <p style="color: red;" >For Purchase Login </p>
+            {% endif %}
             <!-- <a href="product/{{ product.id }} " class="btn btn-outline-success">View</a> -->
-            <h4 style="display: inline-block; float: right;">Rs. {{ product.price|floatformat:2 }}</h4>
-        </div>
+            <h4 style="display: inline-block; float: right;" class="bg-light card-text">Rs. {{ product.price|floatformat:2 }}</h4>
+            
+          </div>
         {% endfor %}
         </div>
     

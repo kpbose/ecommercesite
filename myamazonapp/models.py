@@ -46,6 +46,19 @@ class Address(models.Model):
     date_added=models.DateTimeField(auto_now_add=True)
 
 class TransactionHistory(models.Model):
+    customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
     order=models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
-    TransactionId=models.CharField(max_length=30)
+    cardnumber=models.IntegerField(null=True)
+    expiry=models.CharField(max_length=8,null=True)
+    cvv_no=models.IntegerField(null=True)
     
+class Query(models.Model):
+     username=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+     name=models.CharField(max_length=30,null=True)
+     email=models.EmailField(max_length=30,null=True)
+     subject=models.CharField(max_length=30,null=True)
+     queri=models.CharField(max_length=30,null=True)
+class Reviews(models.Model):
+     username=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+     name=models.CharField(max_length=30,null=True)
+     review=models.CharField(max_length=3000,null=True)

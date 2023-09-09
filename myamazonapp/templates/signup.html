@@ -124,28 +124,38 @@ body {
         Username
         <div class="form-field d-flex align-items-center">
             <span class="far fa-user"></span>
-            {{ form.username }}
+              {{ form.username }}
         </div>
+        <p style="color: red;"> {{form.username.errors}}</p>
         Password
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
             {{ form.password }}
+          
         </div>
+        <p style="color: red;">{{form.password.errors}}</p>
         Confirm Password
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
             {{ form.ConfirmPassword }}
+
         </div>
+        <p style="color: red;">{{form.ConfirmPassword.errors}}</p>
         First Name
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
             {{ form.firstname }}
+
         </div>
+        <p style="color: red;">{{form.firstname.errors}}</p>
         Last Name
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
             {{ form.lastname }}
         </div>
+        <p style="color: red;">{{form.lastname.errors}}</p>
+
+           
         <button class="btn mt-3">Signup</button>
     </form>
     <div class="text-center fs-6">

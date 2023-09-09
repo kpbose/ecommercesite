@@ -1,0 +1,9 @@
+<form action="scrap" method="post">
+    {% csrf_token %}
+    Category:<input type="text" name="category" placeholder="e.g.Mobiles">
+    <br>
+    <br>
+    Maximum Pages:<input type="text" name="pages" id="">
+    <br><br>
+    <input type="submit" value="Scrap">
+</form>

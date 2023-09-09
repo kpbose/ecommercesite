@@ -1,0 +1,84 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<table border="0" id="contact" width="100%" cellpadding="0" cellspacing="0" bgcolor="#292929">
+    <tr>
+        <td>
+            <table border="0" width="85%" cellpadding="15" cellspacing="0" align="center">
+                <!-- Heading Start-->
+                <tr>
+                    <td height="160" align="center" valign="middle">
+                        <font face="arial" size="6" color=" #f3971b">
+                            Submit Review
+                        </font>
+                        <hr width="70" color="#f3971b">
+                    </td>
+                </tr>
+                <!-- Heading  End-->
+                <tr>
+                    <td align="center" valign="top">
+                        <table border="0" width="55%" cellpadding="20" cellspacing="0" align="center" bgcolor="#353535">
+                            <tr>
+                                <td>
+                                    <form action="reviews" method="post">
+                                        {% csrf_token %}
+                                        <table border="0" width="100%" cellpadding="15" cellspacing="0" align="center"
+                                            bgcolor="#353535">
+                                            <tr>
+                                                <td width="30%">
+                                                    <font face="arial" size="4" color="#ffffff">
+                                                        Name
+                                                    </font>
+
+                                                </td>
+                                                <td width="70%">
+                                                    <input type="text" name="name" placeholder="e.g. Koushal" size="50">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td width="30%">
+                                                    <font face="arial" size="4" color="#ffffff">
+                                                        Review
+                                                    </font>
+
+                                                </td>
+                                                <td width="70%">
+                                                    <textarea cols="51" rows="4" name="review"
+                                                        placeholder="Give Review"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="30%">
+                                                    &nbsp;
+                                                </td>
+                                                <td width="70%">
+                                                     <input type="submit" value="Submit">
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                {% if submitted %}
+                                                <div class="text-bg-success p-3">Successfully submitted</div>
+                                                {% endif %}
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- section padding bottom -->
+                <tr>
+                    <td height="60">
+
+                    </td>
+                </tr>
+                <!-- section padding bottom End-->
+            </table>
+        </td>
+    </tr>
+</table>
+{% endblock %}
